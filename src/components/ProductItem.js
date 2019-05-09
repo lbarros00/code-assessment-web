@@ -7,7 +7,8 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
     <Product
       title={product.title}
       price={product.price}
-      inventory={product.inventory} />
+      inventory={product.inventory}
+      image={product.image} />
     <button
       onClick={onAddToCartClicked}
       disabled={product.inventory > 0 ? '' : 'disabled'}>
