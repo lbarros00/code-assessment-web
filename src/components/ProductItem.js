@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Product from './Product'
+import '../styles/product.css'
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
-  <div style={{ marginBottom: 20 }}>
-    <Product
-      title={product.title}
-      price={product.price}
-      inventory={product.inventory}
-      image={product.image} />
+  <div className="product-card">
+    <img src={require("../black_watch.png")} alt={`A ${product.title} wrist watch`}/>
+    <h1>
+      {product.title} <span className="price">&#36;{product.price}</span>
+    </h1>
+    <p>{product.inventory ? `${product.inventory} REMAINING` : null}</p>
     <button
       onClick={onAddToCartClicked}
       disabled={product.inventory > 0 ? '' : 'disabled'}>
-      {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
+      {product.inventory > 0 ? 'ADD TO CART' : 'Sold Out'}
     </button>
   </div>
 )
@@ -21,7 +21,8 @@ ProductItem.propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    inventory: PropTypes.number.isRequired
+    inventory: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired
   }).isRequired,
   onAddToCartClicked: PropTypes.func.isRequired
 }
