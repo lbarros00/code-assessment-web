@@ -4,7 +4,7 @@ import '../styles/product.css'
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div className="product-card">
-    <img src={require("../black_watch.png")} alt={`A ${product.title} wrist watch`}/>
+    <img src={product.image} alt={`A ${product.title} wrist watch`}/>
     <h1>
       {product.title} <span className="price">&#36;{product.price}</span>
     </h1>
