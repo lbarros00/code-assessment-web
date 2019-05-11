@@ -1,28 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Product from './Product'
+import ProductsList from './ProductsList'
+import CartList from './CartList'
+import '../styles/cart.css'
 
 const Cart  = ({ products, total, onCheckoutClicked }) => {
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
-    products.map(product =>
-      <Product
-        title={product.title}
-        price={product.price}
-        quantity={product.quantity}
-        key={product.id}
-      />
-    )
+    <ProductsList title="">
+      {products.map(product =>
+        <CartList
+          key={product.id}
+          product={product} />
+      )}
+    </ProductsList>
   ) : (
-    <em>Please add some products to cart.</em>
+    <div className="cart">
+      <img src={require("../img/cart_icon.png")}/>
+      <p>Please add some products to cart.</p>
+    </div>
   )
 
   return (
-    <div>
-      <h3>Your Cart</h3>
-      <div>{nodes}</div>
+    <div className="cart-modal">
+      <h3>
+        Your Cart
+        <img src={require("../img/x-icon.png")}/>
+      </h3>
+      <hr/>
+      {nodes}
+      <br/>
       <p>Total: &#36;{total}</p>
-      <button onClick={onCheckoutClicked}
+      <button
+        onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>
         Checkout
       </button>
@@ -31,7 +41,12 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
 }
 
 Cart.propTypes = {
-  products: PropTypes.array,
+  products: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    inventory: PropTypes.number.isRequired
+  })).isRequired,
   total: PropTypes.string,
   onCheckoutClicked: PropTypes.func
 }

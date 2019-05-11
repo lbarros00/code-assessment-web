@@ -1,5 +1,5 @@
 [
-  {"id": 1, "title": "Chronograph", "price": 500.01, "inventory": 2, "image": "../../public/img/gray_watch.png"},
-  {"id": 2, "title": "Quartz", "price": 10.99, "inventory": 10, "image": "../../public/img/black_watch.png"},
-  {"id": 3, "title": "Weekender", "price": 19.99, "inventory": 5, "image": "../../public/img/beige_watch.png"}
+  {"id": 1, "title": "Chronograph", "price": 500.01, "inventory": 2, "image": "../img/gray_watch.png"},
+  {"id": 2, "title": "Quartz", "price": 10.99, "inventory": 10, "image": "../img/black_watch.png"},
+  {"id": 3, "title": "Weekender", "price": 19.99, "inventory": 5, "image": "../img/beige_watch.png"}
 ]

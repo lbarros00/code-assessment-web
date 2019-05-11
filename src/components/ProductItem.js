@@ -24,7 +24,7 @@ ProductItem.propTypes = {
     inventory: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired
   }).isRequired,
-  onAddToCartClicked: PropTypes.func.isRequired
+  onAddToCartClicked: PropTypes.func
 }
 
 export default ProductItem

@@ -1,0 +1,76 @@
+.cart {
+  display: block;
+  padding: 50px;
+  text-align: center;
+}
+
+.cart > img {
+  width: 50px;
+}
+
+.cart-modal > h3 {
+  display: block;
+}
+
+.cart-modal > h3 > img {
+  float: right;
+}
+
+.cart-modal > button {
+  color: #fff;
+  padding: 10px 14px;
+  border: none;
+  background: #5e97d1;
+  border-radius: 100px;
+}
+
+.cart-modal > button:hover:enabled,
+.cart-modal > button:focus:enabled {
+  background: #fff;
+  color: #5e97d1;
+  cursor: pointer;
+  border: 1px solid #5e97d1;
+}
+
+.cart-modal > button:disabled {
+  opacity: 0.3;
+}
+
+.cart-card {
+  position: relative;
+  display: inline;
+}
+
+.cart-card > h1 {
+  padding: 0 2% 0 2%;
+}
+
+.cart-card > p {
+  font-size: 13px;
+  color: #9b9b9b;
+}
+
+.cart-card > img {
+  width: 190px;
+  float: left;
+  margin-right: 20px;
+}
+
+.remove {
+  background: transparent;
+  border: none;
+  color: #cc1d39;
+  cursor: pointer;
+  padding: 0;
+}
+
+.qty-button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-device-width: 430px) {
+  .cart-card > h1, p {
+    font-size: 12px;
+  }
+}
