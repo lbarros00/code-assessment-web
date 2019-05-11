@@ -16,26 +16,28 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
     </ProductsList>
   ) : (
     <div className="cart">
-      <img src={require("../img/cart_icon.png")}/>
+      <img src={require("../img/cart_icon.png")} alt="icon of a shopping cart"/>
       <p>Please add some products to cart.</p>
     </div>
   )
 
   return (
-    <div className="cart-modal">
-      <h3>
-        Your Cart
-        <img src={require("../img/x-icon.png")}/>
-      </h3>
-      <hr/>
-      {nodes}
-      <br/>
-      <p>Total: &#36;{total}</p>
-      <button
-        onClick={onCheckoutClicked}
-        disabled={hasProducts ? '' : 'disabled'}>
-        Checkout
-      </button>
+    <div className="cart-opacity">
+      <div className="cart-modal">
+        <h3>
+          Your Cart
+          <img src={require("../img/x-icon.png")} alt="icon of an x"/>
+        </h3>
+        <hr/>
+        {nodes}
+        <hr/>
+        <p>Total <span className="price">&#36;{total}</span></p>
+        <button
+          onClick={onCheckoutClicked}
+          disabled={hasProducts ? '' : 'disabled'}>
+          Checkout
+        </button>
+      </div>
     </div>
   )
 }
