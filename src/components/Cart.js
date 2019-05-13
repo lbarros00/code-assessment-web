@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 import ProductsList from './ProductsList'
 import CartList from './CartList'
 import '../styles/cart.css'
-
+  
 const Cart  = ({ products, total, onCheckoutClicked }) => {
+  let showPopUp = true;
+  var closePopUp = function() {
+    showPopUp = true;
+  }
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
     <ProductsList title="">
@@ -22,23 +26,25 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
   )
 
   return (
-    <div className="cart-opacity">
-      <div className="cart-modal">
-        <h3>
-          Your Cart
-          <img src={require("../img/x-icon.png")} alt="icon of an x"/>
-        </h3>
-        <hr/>
-        {nodes}
-        <hr/>
-        <p>Total <span className="price">&#36;{total}</span></p>
-        <button
-          onClick={onCheckoutClicked}
-          disabled={hasProducts ? '' : 'disabled'}>
-          Checkout
-        </button>
+    showPopUp ? (
+      <div className="cart-opacity">
+        <div className="cart-modal">
+          <h3>
+            Your Cart
+            <button id="closePopUp" onClick={closePopUp}><img src={require("../img/x-icon.png")} alt="icon of an x"/></button>
+          </h3>
+          <hr/>
+          {nodes}
+          <hr/>
+          <p>Total <span className="price">&#36;{total}</span></p>
+          <button
+            onClick={onCheckoutClicked}
+            disabled={hasProducts ? '' : 'disabled'}>
+            Checkout
+          </button>
+        </div>
       </div>
-    </div>
+      ) : null
   )
 }
 

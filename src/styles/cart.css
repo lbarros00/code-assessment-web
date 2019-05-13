@@ -8,7 +8,7 @@
   width: 50px;
 }
 
-.cart-opacity {
+/*.cart-opacity {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@
   height: 100%;
   background-color: rgba(0,0,0, 0.5);
 }
-
+*/
 .cart-modal {
   position: absolute;
   top: 10%;
@@ -35,8 +35,15 @@
   display: block;
 }
 
-.cart-modal > h3 > img {
+#closePopUp {
   float: right;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+#closePopUp > img {
   width: 20px;
 }
 
@@ -95,26 +102,34 @@
 }
 
 .qty-button {
-  margin-bottom: 10px;
+  font-size: 20px;
+  background: #f2f4f7;
+  padding: 4px 16px;
+  color: #8e939c;
+  border: none;
+  cursor: pointer;
+}
+
+.qty-button:hover {
+  color: #fff;
+  background-color: #5e97d1;
 }
 
 #left {
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-  padding: 4px;
-  border: none;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 #right {
-  border-bottom-right-radius: 8px;
-  border-top-right-radius: 8px;
-  padding: 4px;
-  border: none;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
-
 input[type=text] {
-	width: 40px;
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  border: 1px solid #f2f4f7;
 }
 
 @media only screen and (max-device-width: 430px) {
@@ -130,5 +145,19 @@ input[type=text] {
   }
   .cart-card > img {
   	width: 150px;
+  }
+  .button-container {
+  	width: 100%;
+  	display: block;
+  	padding-top: 40px;
+  	text-align: center;
+  }
+  .qty-button {
+  	width: 90px;
+  	height: 40px;
+  }
+  input[type=text] {
+  	width: 70px;
+  	height: 35px;
   }
 }
