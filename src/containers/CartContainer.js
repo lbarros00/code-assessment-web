@@ -5,8 +5,9 @@ import { checkout } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 
-const CartContainer = ({ products, total, checkout }) => (
+const CartContainer = ({ products, total, checkout, showPopUp }) => (
   <Cart
+    showPopUp={showPopUp}
     products={products}
     total={total}
     onCheckoutClicked={() => checkout(products)} />
@@ -20,7 +21,8 @@ CartContainer.propTypes = {
     quantity: PropTypes.number.isRequired
   })).isRequired,
   total: PropTypes.string,
-  checkout: PropTypes.func.isRequired
+  checkout: PropTypes.func.isRequired,
+  showPopUp: PropTypes.bool
 }
 
 const mapStateToProps = (state) => ({

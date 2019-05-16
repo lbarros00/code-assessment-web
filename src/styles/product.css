@@ -34,14 +34,13 @@
 
 .product-card > button:hover:enabled,
 .product-card > button:focus:enabled {
-  background: #fff;
-  color: #5e97d1;
   cursor: pointer;
-  border: 1px solid #5e97d1;
+  background-color: #407fc0;
 }
 
 .product-card > button:disabled {
   opacity: 0.3;
+  cursor: default;
 }
 
 .product-card {

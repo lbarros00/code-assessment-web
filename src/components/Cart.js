@@ -4,10 +4,10 @@ import ProductsList from './ProductsList'
 import CartList from './CartList'
 import '../styles/cart.css'
   
-const Cart  = ({ products, total, onCheckoutClicked }) => {
-  let showPopUp = true;
+const Cart  = ({ products, total, onCheckoutClicked, showPopUp }) => {
   var closePopUp = function() {
-    showPopUp = true;
+    var popup = document.getElementsByClassName("cart-opacity");
+    popup[0].style.visibility = "hidden";
   }
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
@@ -31,7 +31,7 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
         <div className="cart-modal">
           <h3>
             Your Cart
-            <button id="closePopUp" onClick={closePopUp}><img src={require("../img/x-icon.png")} alt="icon of an x"/></button>
+            <button id="closePopUp" onClick={() => closePopUp()}><img src={require("../img/x-icon.png")} alt="icon of an x"/></button>
           </h3>
           <hr/>
           {nodes}
@@ -56,7 +56,8 @@ Cart.propTypes = {
     inventory: PropTypes.number.isRequired
   })).isRequired,
   total: PropTypes.string,
-  onCheckoutClicked: PropTypes.func
+  onCheckoutClicked: PropTypes.func,
+  showPopUp: PropTypes.bool
 }
 
 export default Cart
